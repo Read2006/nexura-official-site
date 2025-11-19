@@ -287,9 +287,9 @@ export default function Home() {
 
       {/* GPT Popup */}
       {isGptOpen && (
-        <div className="fixed bottom-6 right-6 w-96 h-[500px] bg-black border-2 border-cyan-400 rounded-xl shadow-neon flex flex-col z-50 mt-32">
-          <div className="bg-gradient-to-r from-cyan-400 to-blue-500 text-black font-bold p-3 rounded-t-xl flex justify-between items-center">
-            🌐 NEXURA GPT
+        <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 w-[calc(100%-2rem)] sm:w-96 h-[500px] sm:h-[450px] max-h-[85vh] sm:max-h-[80vh] bg-black border-2 border-cyan-400 rounded-xl shadow-neon flex flex-col z-50">
+          <div className="bg-gradient-to-r from-cyan-400 to-blue-500 text-black font-bold p-3 rounded-t-xl flex justify-between items-center shrink-0">
+              🌐 NEXURA GPT
             <button
               onClick={() => setIsGptOpen(false)}
               className="text-black font-bold hover:text-white"
@@ -299,7 +299,7 @@ export default function Home() {
           </div>
           <div
             id="nexura-gpt-messages"
-            className="flex-1 p-3 overflow-y-auto text-white space-y-3 scrollbar-hide"
+            className="flex-1 p-3 overflow-y-auto text-white space-y-3 scrollbar-hide min-h-0"
           >
             {messages.length === 0 && (
               <div className="text-gray-400 text-center mt-4">
@@ -341,7 +341,7 @@ export default function Home() {
               </div>
             )}
           </div>
-          <div className="border-t border-gray-700/50 p-2">
+          <div className="border-t border-gray-700/50 p-3 shrink-0">
             <p className="text-xs text-gray-500 text-center mb-2">
               Nexura GPT can make mistakes. Verify important information.
             </p>
@@ -352,12 +352,12 @@ export default function Home() {
                 placeholder="Type your question..."
                 onKeyPress={handleKeyPress}
                 disabled={isLoading}
-                className="flex-1 p-2 rounded-lg bg-gray-900 text-white outline-none disabled:opacity-50"
+                className="flex-1 p-2 rounded-lg bg-gray-900 text-white outline-none disabled:opacity-50 text-sm"
               />
               <button
                 onClick={sendMessage}
                 disabled={isLoading}
-                className="bg-cyan-400 px-4 py-2 rounded-lg font-bold text-black hover:bg-cyan-500 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="bg-cyan-400 px-3 sm:px-4 py-2 rounded-lg font-bold text-black hover:bg-cyan-500 disabled:opacity-50 disabled:cursor-not-allowed text-sm whitespace-nowrap"
               >
                 {isLoading ? "..." : "Send"}
               </button>
