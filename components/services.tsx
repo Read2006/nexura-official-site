@@ -9,10 +9,10 @@ import {
   Settings,
   Truck,
   BarChart3,
-  Cloud,
+  Bot,
   Globe,
   Smartphone,
-  AreaChart,
+  Workflow,
 } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
@@ -29,7 +29,7 @@ export default function Services() {
         return;
       }
       const heights = (cardRefs.current || []).map((el) =>
-        el ? el.getBoundingClientRect().height : 0
+        el ? el.getBoundingClientRect().height : 0,
       );
       const max = heights.length ? Math.max(...heights) : undefined;
       setEqualHeight(max && isFinite(max) ? Math.ceil(max) : undefined);
@@ -136,16 +136,26 @@ export default function Services() {
       color: "from-accent to-primary",
     },
     {
-      icon: <Cloud className="h-8 w-8" />,
-      title: "Cloud Solutions",
-      slug: "cloud-solutions",
+      icon: <Bot className="h-8 w-8" />,
+      title: "AI Chatbot Development & Integration",
+      slug: "ai-chatbot-development",
       description:
-        "Leverage the power of the cloud with our scalable and secure infrastructure solutions.",
+        "Custom-built AI chatbots tailored to your business needs with 24/7 automated customer support and instant responses.",
       features: [
-        "Cloud migration and deployment (AWS, Azure, GCP)",
-        "Serverless architecture and microservices",
-        "DevOps and CI/CD pipeline implementation",
-        "Cloud security and compliance",
+        "Custom-built AI chatbots tailored to your business needs",
+        "Integration on Websites, Mobile Apps, WhatsApp, Instagram & Facebook",
+        "24/7 automated customer support with instant responses",
+        "Smart conversation flows designed for sales, support & lead generation",
+        "Multilingual chatbots for global customers",
+        "Ability to connect chatbots with your CRM, databases, Google Sheets, APIs, payment systems, etc.",
+        "Human-like responses powered by advanced AI models",
+        "Ticketing support automation for faster customer handling",
+        "Advanced features like memory, user profiling, custom intents & knowledge bases",
+        "High-accuracy replies through fine-tuned AI knowledge training",
+        "Reduce customer support workload by up to 70%",
+        "Increase conversion rates with instant replies",
+        "Provide clients a modern, fast, AI-driven experience",
+        "Fully scalable — grows as your business grows",
       ],
       color: "from-primary to-accent",
     },
@@ -178,16 +188,27 @@ export default function Services() {
       color: "from-primary to-accent",
     },
     {
-      icon: <AreaChart className="h-8 w-8" />,
-      title: "Analytics & Reporting",
-      slug: "analytics-reporting",
+      icon: <Workflow className="h-8 w-8" />,
+      title: "AI Workflow Automation (Powered by n8n)",
+      slug: "ai-workflow-automation",
       description:
-        "Turn data into actionable insights with our advanced analytics and reporting services.",
+        "Design and build high-quality automation systems using n8n with end-to-end business process automation.",
       features: [
-        "Business intelligence and data visualization",
-        "Predictive analytics and machine learning models",
-        "Data warehousing and ETL pipelines",
-        "Custom dashboards and reporting solutions",
+        "Design and build high-quality automation systems using n8n",
+        "End-to-end business process automation",
+        "Automated workflows for customer support, lead handling, notifications, marketing, CRM syncing",
+        "Connect hundreds of apps (WhatsApp, Gmail, Stripe, Airtable, Shopify, Sheets, CRMs, etc.)",
+        "AI-enhanced automations such as email & message classification, auto-draft replies, document extraction",
+        "Smart routing & decision trees",
+        "Build custom backend logic without writing heavy code",
+        "Real-time dashboards, logs, and failure alerts",
+        "API integration & webhook setup",
+        "Maintenance, optimization & scaling support",
+        "Save time by automating repetitive tasks",
+        "Reduce manual errors",
+        "Centralize your business operations",
+        "Faster response times for customers",
+        "Scalable automation that fits small to enterprise-level businesses",
       ],
       color: "from-accent to-primary",
     },
@@ -234,13 +255,15 @@ export default function Services() {
                         }
                       >
                         <span
-                          className={`w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 ${
+                          className={`w-10 h-10 min-w-10 min-h-10 rounded-full flex items-center justify-center flex-shrink-0 transition-all duration-300 ${
                             active
                               ? "text-black bg-primary scale-110"
                               : "text-primary bg-primary/10"
                           }`}
                         >
-                          {service.icon}
+                          <span className="w-5 h-5 flex items-center justify-center">
+                            {service.icon}
+                          </span>
                         </span>
                         <span
                           className={`font-semibold ${
