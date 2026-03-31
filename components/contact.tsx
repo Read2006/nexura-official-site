@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -14,8 +13,6 @@ import {
   Clock,
   Send,
   MessageSquare,
-  Calendar,
-  Zap,
   Copy,
   Check,
   CheckCircle,
@@ -33,9 +30,7 @@ export default function Contact() {
     projectDetails: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<
-    "idle" | "success" | "error"
-  >("idle");
+  const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
 
   const copyToClipboard = async (text: string, field: string) => {
     try {
@@ -47,22 +42,8 @@ export default function Contact() {
     }
   };
 
-  const getEmailByService = (service: string) => {
-    const emailRoutes = {
-      "Ecommerce Solutions": "ecommerce@nexura.tech",
-      "Web Development": "web@nexura.tech",
-      "SEO Optimization": "seo@nexura.tech",
-      default: "hello@nexura.tech",
-    };
-    return (
-      emailRoutes[service as keyof typeof emailRoutes] || emailRoutes.default
-    );
-  };
-
   const handleInputChange = (
-    e: React.ChangeEvent<
-      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-    >
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
@@ -79,9 +60,7 @@ export default function Contact() {
     try {
       const response = await fetch("/api/contact", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
 
@@ -96,19 +75,16 @@ export default function Contact() {
           projectDetails: "",
         });
       } else {
-        const errorData = await response.json();
-        console.error("Error response:", errorData);
         setSubmitStatus("error");
       }
     } catch (error) {
-      console.error("Error sending message:", error);
       setSubmitStatus("error");
     } finally {
       setIsSubmitting(false);
     }
   };
 
- const contactInfo = [
+  const contactInfo = [
     {
       icon: <Mail className="h-6 w-6" />,
       title: "Email Us",
@@ -127,7 +103,7 @@ export default function Contact() {
       icon: <MapPin className="h-6 w-6" />,
       title: "Visit Us",
       details: "#3 floor naqeeb plaza plot no 3 near giga mall sector c dha phase 2 islamabad",
-      description: "",
+      description: "Visit our office location",
       copyable: false,
     },
     {
@@ -142,9 +118,6 @@ export default function Contact() {
   const services = [
     "Ecommerce Solutions",
     "Web Development",
-    //"SEO Optimization",
-    // "Digital Marketing",
-    // "Payment Integration",
     "Mobile App Development",
     "Cloud Solutions",
     "Analytics & Reporting",
@@ -161,16 +134,14 @@ export default function Contact() {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-6 text-foreground">
-            Let's Build the{" "}
-            <span className="text-primary neon-text">Future</span> Together
+            Let's Build the <span className="text-primary neon-text">Future</span> Together
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-           Whether you’re an individual or a business, we provide smart IT and e-commerce services that turn your ideas into reality. From building your online presence to creating digital tools, we help you grow and achieve real financial results, delivering the ROI you expect from every investment.
+            Whether you’re an individual or a business, we provide smart IT and e-commerce services that turn your ideas into reality.
           </p>
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-12 items-start">
-          {/* Contact Form */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -186,49 +157,39 @@ export default function Contact() {
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-6">
-                {/* Success/Error Messages */}
                 {submitStatus === "success" && (
                   <div className="flex items-center gap-2 p-4 bg-green-500/10 border border-green-500/20 rounded-lg">
                     <CheckCircle className="h-5 w-5 text-green-500" />
-                    <p className="text-green-500 font-medium">
-                      Message sent successfully! We'll get back to you soon.
-                    </p>
+                    <p className="text-green-500 font-medium">Message sent successfully!</p>
                   </div>
                 )}
                 {submitStatus === "error" && (
                   <div className="flex items-center gap-2 p-4 bg-red-500/10 border border-red-500/20 rounded-lg">
                     <AlertCircle className="h-5 w-5 text-red-500" />
-                    <p className="text-red-500 font-medium">
-                      Failed to send message. Please try again or contact us
-                      directly.
-                    </p>
+                    <p className="text-red-500 font-medium">Failed to send message. Please try again.</p>
                   </div>
                 )}
 
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid md:grid-cols-2 gap-4">
                     <div>
-                      <label className="text-sm font-medium text-foreground mb-2 block">
-                        First Name
-                      </label>
+                      <label className="text-sm font-medium text-foreground mb-2 block">First Name</label>
                       <Input
                         name="firstName"
                         value={formData.firstName}
                         onChange={handleInputChange}
-                        placeholder="-"
+                        placeholder="First Name"
                         className="neon-border bg-background/50"
                         required
                       />
                     </div>
                     <div>
-                      <label className="text-sm font-medium text-foreground mb-2 block">
-                        Last Name
-                      </label>
+                      <label className="text-sm font-medium text-foreground mb-2 block">Last Name</label>
                       <Input
                         name="lastName"
                         value={formData.lastName}
                         onChange={handleInputChange}
-                        placeholder="-"
+                        placeholder="Last Name"
                         className="neon-border bg-background/50"
                         required
                       />
@@ -236,37 +197,20 @@ export default function Contact() {
                   </div>
 
                   <div>
-                    <label className="text-sm font-medium text-foreground mb-2 block">
-                      Email
-                    </label>
+                    <label className="text-sm font-medium text-foreground mb-2 block">Email</label>
                     <Input
                       name="email"
                       type="email"
                       value={formData.email}
                       onChange={handleInputChange}
-                      placeholder="-"
+                      placeholder="email@example.com"
                       className="neon-border bg-background/50"
                       required
                     />
                   </div>
 
                   <div>
-                    <label className="text-sm font-medium text-foreground mb-2 block">
-                      Company (optional)
-                    </label>
-                    <Input
-                      name="company"
-                      value={formData.company}
-                      onChange={handleInputChange}
-                      placeholder="-"
-                      className="neon-border bg-background/50"
-                    />
-                  </div>
-
-                  <div>
-                    <label className="text-sm font-medium text-foreground mb-2 block">
-                      Service Interest
-                    </label>
+                    <label className="text-sm font-medium text-foreground mb-2 block">Service Interest</label>
                     <select
                       name="service"
                       value={formData.service}
@@ -276,22 +220,18 @@ export default function Contact() {
                     >
                       <option value="">Select a service</option>
                       {services.map((service, index) => (
-                        <option key={index} value={service}>
-                          {service}
-                        </option>
+                        <option key={index} value={service}>{service}</option>
                       ))}
                     </select>
                   </div>
 
                   <div>
-                    <label className="text-sm font-medium text-foreground mb-2 block">
-                      Project Details
-                    </label>
+                    <label className="text-sm font-medium text-foreground mb-2 block">Project Details</label>
                     <Textarea
                       name="projectDetails"
                       value={formData.projectDetails}
                       onChange={handleInputChange}
-                      placeholder="Tell us about your project, timeline, and requirements..."
+                      placeholder="Tell us about your project..."
                       className="neon-border bg-background/50 min-h-[120px]"
                       required
                     />
@@ -300,86 +240,42 @@ export default function Contact() {
                   <Button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full bg-gradient-to-r from-primary to-accent text-black neon-glow hover:scale-105 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="w-full bg-gradient-to-r from-primary to-accent text-black neon-glow"
                   >
-                    {isSubmitting ? (
-                      <>
-                        <div className="mr-2 h-4 w-4 animate-spin rounded-full border-2 border-black border-t-transparent" />
-                        Sending...
-                      </>
-                    ) : (
-                      <>
-                        <Send className="mr-2 h-4 w-4" />
-                        Send Message
-                      </>
-                    )}
+                    {isSubmitting ? "Sending..." : "Send Message"}
                   </Button>
                 </form>
               </CardContent>
             </Card>
           </motion.div>
 
-          {/* Contact Information */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="space-y-6 h-full flex flex-col"
-          >
-            <div className="grid gap-6 flex-1">
-              {contactInfo.map((info, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                >
-                  <Card className="neon-border bg-card/50 backdrop-blur-sm hover:neon-glow transition-all duration-300">
-                    <CardContent className="p-6">
-                      <div className="flex items-start gap-4">
-                        <div className="text-primary">{info.icon}</div>
-                        <div className="flex-1">
-                          <h3 className="font-semibold text-foreground mb-1">
-                            {info.title}
-                          </h3>
-                          <div className="flex items-center gap-2 mb-1">
-                            <p className="text-primary font-medium">
-                              {info.details}
-                            </p>
-                            {info.copyable && (
-                              <button
-                                onClick={() =>
-                                  copyToClipboard(info.details, info.title)
-                                }
-                                className="text-muted-foreground hover:text-primary transition-colors p-1 rounded hover:bg-background/50"
-                                title={`Copy ${info.title.toLowerCase()}`}
-                              >
-                                {copiedField === info.title ? (
-                                  <Check className="h-4 w-4 text-green-500" />
-                                ) : (
-                                  <Copy className="h-4 w-4" />
-                                )}
-                              </button>
-                            )}
-                          </div>
-                          <p className="text-sm text-muted-foreground">
-                            {info.description}
-                          </p>
-                        </div>
+          <div className="grid gap-6 flex-1">
+            {contactInfo.map((info, index) => (
+              <Card key={index} className="neon-border bg-card/50 backdrop-blur-sm hover:neon-glow transition-all duration-300">
+                <CardContent className="p-6">
+                  <div className="flex items-start gap-4">
+                    <div className="text-primary">{info.icon}</div>
+                    <div className="flex-1">
+                      <h3 className="font-semibold text-foreground mb-1">{info.title}</h3>
+                      <div className="flex items-center gap-2 mb-1">
+                        <p className="text-primary font-medium">{info.details}</p>
+                        {info.copyable && (
+                          <button
+                            onClick={() => copyToClipboard(info.details, info.title)}
+                            className="text-muted-foreground hover:text-primary p-1"
+                          >
+                            {copiedField === info.title ? <Check className="h-4 w-4 text-green-500" /> : <Copy className="h-4 w-4" />}
+                          </button>
+                        )}
                       </div>
-                    </CardContent>
-                  </Card>
-                </motion.div>
-              ))}
-            </div>
-
-            {/* Quick Actions */}
-          </motion.div>
+                      <p className="text-sm text-muted-foreground">{info.description}</p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
         </div>
-
-        {/* Call to Action */}
       </div>
     </section>
   );
