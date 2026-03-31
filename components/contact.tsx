@@ -108,7 +108,7 @@ export default function Contact() {
     }
   };
 
-  const contactInfo = [
+ const contactInfo = [
     {
       icon: <Mail className="h-6 w-6" />,
       title: "Email Us",
@@ -126,7 +126,7 @@ export default function Contact() {
     {
       icon: <MapPin className="h-6 w-6" />,
       title: "Visit Us",
-      details: "#3 floor naqeeb plaza plot no 3 near giga mall sector c dha phase 2 islamabad ",
+      details: "#3 floor naqeeb plaza plot no 3 near giga mall sector c dha phase 2 islamabad",
       description: "",
       copyable: false,
     },
