@@ -14,12 +14,12 @@ export default function Team() {
   const teamMembers = [
     {
       name: "Dr Jawad Hashmi",
-      role: "Co-Founder",
+      role: "Managing Director",
       image: "/j11.jpg",
     },
     {
       name: "Ammar",
-      role: "Co-Founder ",
+      role: "CEO",
       image: "/a111.jpg",
     },
     {
@@ -29,7 +29,7 @@ export default function Team() {
     },
     {
       name: "Usman",
-      role: "Director IT",
+      role: "Director Fintech",
       image: "/us.jpeg",
     },
   ];
