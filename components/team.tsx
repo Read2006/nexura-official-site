@@ -45,12 +45,11 @@ export default function Team() {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-6 text-foreground">
-            Meet the <span className="text-primary neon-text">Innovators</span>
+            Meet the <span className="text-primary neon-text">Team</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            Our diverse team of experts brings together passion and experience
-            in cutting-edge technologies, united by a passion for creating
-            exceptional digital solutions.
+            A team of e-commerce operators and automation specialists focused on one thing:
+            turning your marketplace presence into predictable, scalable growth.
           </p>
         </motion.div>
 
