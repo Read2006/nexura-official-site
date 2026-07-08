@@ -146,13 +146,11 @@ export default function Services() {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-6 text-foreground">
-            <span className="text-primary neon-text">Comprehensive</span> Tech
-            Solutions
+            <span className="text-primary neon-text">Automation-Powered</span> E-Commerce Growth
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            From concept to deployment, we provide end-to-end technology
-            services that drive innovation and accelerate your digital
-            transformation journey.
+            From account setup to daily operations, we combine marketplace expertise with smart automation
+            to save you time, reduce costs, and turn every listing into consistent, scalable revenue.
           </p>
         </motion.div>
 
