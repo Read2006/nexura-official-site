@@ -118,7 +118,7 @@ function TeamAvatar({ src, alt }: AvatarProps) {
       alt={alt}
       className={`w-40 h-40 md:w-44 md:h-44 rounded-full object-cover shadow-lg ${
         isAmmar ? "object-[center_25%]" : ""
-      } ${isUsman ? "scale-110 object-[center_20%]" : ""}`}
+      } ${isUsman ? "scale-125 object-[center_20%]" : ""}`}
       onError={(e) => {
         const img = e.currentTarget as HTMLImageElement;
         if (img.src !== window.location.origin + placeholder) {
