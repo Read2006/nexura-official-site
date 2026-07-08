@@ -30,7 +30,7 @@ export default function Team() {
     {
       name: "Usman",
       role: "Director Fintech",
-      image: "/us.jpeg",
+      image: "/Gemini_Generated_Image_j9ypqnj9ypqnj9yp.png",
     },
   ];
 
