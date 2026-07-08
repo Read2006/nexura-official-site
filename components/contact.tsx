@@ -116,11 +116,12 @@ export default function Contact() {
   ];
 
   const services = [
-    "Ecommerce Solutions",
-    "Web Development",
-    "Mobile App Development",
-    "Cloud Solutions",
-    "Analytics & Reporting",
+    "Account Setup & Registration",
+    "Product Listing & Store Management",
+    "Advertising & Marketing",
+    "Optimization & Growth",
+    "Fulfillment & Logistics",
+    "Reporting & Scaling",
   ];
 
   return (
@@ -134,10 +135,10 @@ export default function Contact() {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-6 text-foreground">
-            Let's Build the <span className="text-primary neon-text">Future</span> Together
+            Let's Grow Your <span className="text-primary neon-text">Store</span> Together
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            Whether you’re an individual or a business, we provide smart IT and e-commerce services that turn your ideas into reality.
+            Whether you're just starting out or scaling across marketplaces, we combine e-commerce expertise with smart automation to help you sell more and manage less.
           </p>
         </motion.div>
 
