@@ -1,10 +1,8 @@
 "use client";
-
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Zap, Target, Users, Award } from "lucide-react";
-
 export default function AboutUs() {
   const values = [
     {
@@ -32,7 +30,6 @@ export default function AboutUs() {
         "Hundreds of successful product launches and millions in revenue generated across all major marketplaces.",
     },
   ];
-
   return (
     <section className="py-24 relative">
       <div className="container mx-auto px-4">
@@ -45,14 +42,13 @@ export default function AboutUs() {
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-6 text-foreground">
             Powering Your{" "}
-            <span className="text-primary neon-text"> IT & E-Commerce Journey</span>
+            <span className="text-primary neon-text"> E-Commerce Growth</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-           At Nexura, we provide complete IT and e-commerce solutions to help clients start, manage, and grow in the digital world.
-Whether you want to set up and run your Amazon, Walmart, or TikTok Shop account, or need web development, software, and other IT services, our goal is to make your online journey smooth, smart, and successful.
+            At Nexura, we help sellers launch, manage, and scale on Amazon, Walmart, eBay, and TikTok Shop — combining hands-on marketplace expertise with smart automation to save you time, cut costs, and grow revenue faster.
+            From account setup to daily operations, advertising, and fulfillment, we build systems that keep your store running and growing on autopilot.
           </p>
         </motion.div>
-
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-16">
           {values.map((value, index) => (
             <motion.div
