@@ -18,7 +18,7 @@ export default function Team() {
       image: "/j11.jpg",
     },
     {
-      name: "Ammar",
+      name: "Ammar Faisal",
       role: "CEO",
       image: "/a111.jpg",
     },
@@ -29,7 +29,7 @@ export default function Team() {
     },
     {
       name: "Usman",
-      role: "Director Fintech",
+      role: "Walmart Executive",
       image: "/Gemini_Generated_Image_qamgauqamgauqamg.png",
     },
   ];
@@ -109,7 +109,7 @@ type AvatarProps = { src?: string; alt: string };
 
 function TeamAvatar({ src, alt }: AvatarProps) {
   const placeholder = "/avatar-placeholder.svg";
-  const isAmmar = alt === "Ammar";
+  const isAmmar = alt === "Ammar Faisal";
   const isUsman = alt === "Usman";
 
   return (
